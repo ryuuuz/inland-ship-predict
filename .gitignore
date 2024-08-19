@@ -1,2 +1,5 @@
 /data/raw/
 /.idea/
+
+*.feather
+*.pkl
