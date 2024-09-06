@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import plotly.graph_objects as go
 
@@ -59,7 +60,8 @@ def plot_trajectories(data, start_date, end_date, start_hour, end_hour):
 
 if __name__ == '__main__':
     # 读取数据
-    data = pd.read_pickle('data/segmented_data.pkl')
+    current_dir = os.getcwd() # 获取当前脚本的路径
+    data = pd.read_pickle(current_dir + '/../data/segmented_data.pkl')
 
     # 绘制轨迹
     plot_trajectories(data, '2024-04-18', '2024-04-20', 8, 12)
