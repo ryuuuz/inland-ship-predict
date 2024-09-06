@@ -1,0 +1,42 @@
+/* 设置页面背景颜色和字体 */
+body {
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+}
+
+/* 标题样式 */
+h1 {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+/* 日期选择器外部容器的样式 */
+.date-picker-container {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+}
+
+/* 标签样式 */
+.date-picker-label {
+    font-size: 20px;
+    color: #666666;
+    margin-right: 10px;
+}
+
+/* 日期选择器样式 */
+.dash-datepicker {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+/* 图表容器样式 */
+#segmented-data-plot {
+    height: 600px;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #ffffff;
+}
