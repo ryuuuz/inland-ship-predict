@@ -14,7 +14,7 @@ gdf = gdf.read_file(current_dir + '/../output/saved_trajectories.shp')
 # 只要前 1000 行数据
 gdf = gdf.head(1000)
 
-n = 10  # Number of top trajectories to display
+n = 50  # Number of top trajectories to display
 
 # Register callbacks for interactivity
 def register_callbacks(app):
@@ -78,7 +78,7 @@ def register_callbacks(app):
         fig.update_layout(
             margin={'l': 0, 't': 0, 'b': 0, 'r': 0},
             map={
-                'style': "open-street-map",
+                'style': "basic",
                 'center': {'lon': segments_to_plot['longitude'].mean(), 'lat': segments_to_plot['latitude'].mean()},
                 'zoom': 13
             },
