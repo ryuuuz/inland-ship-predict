@@ -26,11 +26,14 @@ def plot_trajectories(data, start_date, end_date, start_hour, end_hour):
 
     # 为每个轨迹段绘制线段
     for (mmsi, segment_id), segment_data in segments_to_plot.groupby(['mmsi', 'segment_id']):
+        # if mmsi not in  [413762476, 413818905, 413844562, 413874339, 413871506]:
+        #     continue
+
         # 创建悬停文本
         hover_text = [
-            f"MMSI: {mmsi:.0f}<br>Lat: {lat:.6f}, Lon: {lon:.6f}<br>Time: {time}<br>Speed: {speed} knots"
-            for lat, lon, time, speed in
-            zip(segment_data['latitude'], segment_data['longitude'], segment_data['post_time'], segment_data['speed'])
+            f"MMSI: {mmsi:.0f}<br>Lat: {lat:.6f}, Lon: {lon:.6f}<br>Time: {time}<br>Speed: {sog} knots <br>Cog: {cog} degrees <br>Segment ID: {id}"
+            for lat, lon, time, sog, cog, id in
+            zip(segment_data['latitude'], segment_data['longitude'], segment_data['post_time'], segment_data['sog'], segment_data['cog'], segment_data['segment_id'])
         ]
 
         fig.add_trace(go.Scattermap(
@@ -61,7 +64,8 @@ def plot_trajectories(data, start_date, end_date, start_hour, end_hour):
 if __name__ == '__main__':
     # 读取数据
     current_dir = os.getcwd() # 获取当前脚本的路径
-    data = pd.read_pickle(current_dir + '/../data/segmented_data.pkl')
+    # data = pd.read_pickle(current_dir + '/../output/segmented_data.pkl')
+    data = pd.read_pickle(current_dir + '/../output/segmented_data_combined.pkl')
 
     # 绘制轨迹
-    plot_trajectories(data, '2024-04-18', '2024-04-20', 8, 12)
+    plot_trajectories(data, '2024-04-21', '2024-04-22', 8, 12)
